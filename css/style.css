@@ -1,6 +1,18 @@
 body {
     font-family: sans-serif;
     font-size: 14px;
-    line-height: 1.5;
-    
+    line-height: 1.5;    
 }
+
+a {
+    color: #337ab7;
+    text-decoration: none;
+}
+
+#about-me p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 1em;
+  border: 1px solid #3498db;
+}
+
