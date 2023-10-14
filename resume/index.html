@@ -14,7 +14,8 @@
 		function downloadPDF() {
 		  // Replace with the actual S3 URL of your PDF file
 		  const s3PDFUrl = 'https://s3.amazonaws.com/chrisstaub.com/resume/Christopher_Staub.pdf';
-		  const filename = 'Christopher_Staub.pdf'; // Desired filename for the downloaded PDF
+		  window.open(s3PDFUrl, '_blank');
+		//   const filename = 'Christopher_Staub.pdf'; // Desired filename for the downloaded PDF
 	  
 		  // Create an invisible link to trigger the download
 		  const a = document.createElement('a');
@@ -42,7 +43,7 @@
 
 				<div class="yui-u">
 					<div class="contact-info">
-						<h3><a  id="pdf" target= "_blank" href="#" onclick="downloadPDF();">Download PDF</a></h3>
+						<h3><a id="pdf" target="_blank" href="#" onclick="downloadPDF();">Download PDF</a></h3>
 						<h3><a href="mailto:crstaub@gmail.com">crstaub@gmail.com</a></h3>
 						<h3>(651) 485-4167</h3>
 					</div><!--// .contact-info -->
