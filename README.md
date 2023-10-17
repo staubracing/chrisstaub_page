@@ -10,10 +10,9 @@ This is a website to store my Bio, Resume, and general stuff
 
 ```aws cloudfront create-invalidation --distribution-id E2BU3AFPICGS4A --paths "/*"```
 
+##### Use this command to sync the website to the s3 bucket**
 
-##### Use this command to sync the resume to the s3 bucket**
-
-```aws s3 sync ./resume s3://chrisstaub.com/resume```
+```aws s3 sync chrisstaub_site/ s3://chrisstaub.com/ --exclude ".git/*" --exclude "README.md"```
 
 ##### This is the old link to the css**
 
