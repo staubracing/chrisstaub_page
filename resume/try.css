@@ -1,0 +1,43 @@
+/* Basic Element Resets */
+html {
+    color: #000;
+    background: #FFF;
+}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+fieldset, img {
+    border: 0;
+}
+address, caption, cite, code, dfn, em, strong, th, var, optgroup {
+    font-style: inherit;
+    font-weight: inherit;
+}
+del, ins {
+    text-decoration: none;
+}
+li {
+    list-style: none;
+}
+caption, th {
+    text-align: left;
+}
+
+/* More specific rules */
+/* ... abbreviated for brevity ... */
+
+#hd:after, #bd:after, #ft:after, .yui-g:after, .yui-gb:after, .yui-gc:after, .yui-gd:after, .yui-ge:after, .yui-gf:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+#hd, #bd, #ft, .yui-g, .yui-gb, .yui-gc, .yui-gd, .yui-ge, .yui-gf {
+    zoom: 1;
+}
