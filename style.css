@@ -1,0 +1,51 @@
+body {
+    font-family: sans-serif;
+    font-size: 14px;
+    line-height: 1.5;    
+}
+
+a {
+    color: #337ab7;
+    text-decoration: none;
+}
+
+#about-me p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 1em;
+  border: 1px solid #3498db;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #121212;
+  color: #ffffff;
+}
+
+header {
+  background-color: #1a1a1a;
+  color: #3498db;
+  text-align: center;
+  padding: 1em;
+}
+
+section {
+  padding: 2em;
+  background-color: #1a1a1a;
+}
+
+h2 {
+  color: #3498db;
+}
+
+footer {
+  background-color: #1a1a1a;
+  color: #3498db;
+  text-align: center;
+  padding: 1em;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
