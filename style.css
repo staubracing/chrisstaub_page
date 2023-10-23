@@ -3,28 +3,14 @@ body {
   font-family: Arial;
   font-size: 14px;
   line-height: 1.5;
-  
+
   /* Reset the margin and padding to 0 */
   margin: 0;
   padding: 0;
-  
+
   /* Set the background color to dark gray and the text color to white */
   background-color: #121212;
   color: #ffffff;
-}
-
-/* Set the link color and remove the underline */
-a {
-  color: #33b76a;
-  text-decoration: underline;
-}
-/* Set the class .no-underline to be remove the underline */
-.no-underline a {
-  text-decoration: none;
-}
-
-.red-link a {
-  color: #ff0000;
 }
 
 /* Set the background color, text color, and alignment for the header */
@@ -40,33 +26,51 @@ h1 {
   padding: 5px;
 }
 
+.special-header {
+  color: green;
+}
+
 /* Set the color for the h2 element */
 h2 {
   color: #3498db;
 }
 
-/* Set the font size, line height, margin, and padding for the p element */
-p {
-  font-size: 16px;
-  line-height: 1.5;
-  margin-bottom: 1em;
-  padding: 5px;
-}
-
-/* Set the font size, line height, margin, and padding for the li element */
-li {
-  font-size: 16px;
-  line-height: 1.4;
-  /* margin-bottom: 1em; */
-  padding: 5px;
-}
-
-.underline li {
+/* Set the link color and remove the underline */
+a {
+  color: #33b76a;
   text-decoration: underline;
 }
 
-/* Set the padding and background color for the section element */
-section {
-  padding: 2em;
-  background-color: #1a1a1a;
+/* Set the class .no-underline to be remove the underline */
+.no-underline a {
+  text-decoration: none;
 }
+
+.red-link a {
+  color: #ff0000;
+
+  /* Set the font size, line height, margin, and padding for the p element */
+  p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 1em;
+    padding: 5px;
+  }
+
+  /* Set the font size, line height, margin, and padding for the li element */
+  li {
+    font-size: 16px;
+    line-height: 1.4;
+    /* margin-bottom: 1em; */
+    padding: 5px;
+  }
+
+  .underline li {
+    text-decoration: underline;
+  }
+
+  /* Set the padding and background color for the section element */
+  section {
+    padding: 2em;
+    background-color: #1a1a1a;
+  }
