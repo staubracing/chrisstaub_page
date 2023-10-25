@@ -9,14 +9,13 @@ body {
   padding: 0;
 
   /* Set the background color to dark gray and the text color to white */
-  background-color: #121212;
+  background-color: rgb(0, 0, 0);
   color: #ffffff;
 }
 
 /* Set the background color, text color, and alignment for the header */
 header {
-  background-color: #1a1a1a;
-  color: #14a550;
+  background-color: rgb(0, 0, 0);
   text-align: center;
 }
 
@@ -26,13 +25,14 @@ h1 {
   padding: 5px;
 }
 
-.special-header {
-  color: green;
-}
-
 /* Set the color for the h2 element */
 h2 {
-  color: #3498db;
+  color: rgb(25, 200, 125);
+}
+
+
+.cs-green {
+  color: rgb(0, 255, 0);
 }
 
 /* Set the link color and remove the underline */
@@ -48,7 +48,7 @@ a {
 
 .red-link a {
   color: #ff0000;
-
+}
   /* Set the font size, line height, margin, and padding for the p element */
   p {
     font-size: 16px;
