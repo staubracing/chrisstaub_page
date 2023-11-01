@@ -125,8 +125,8 @@ select {
 
 body {
     font: 13px/1.231 arial, helvetica, clean, sans-serif;
-    /* font-size: small;
-    font: x-small; */
+    font-size: small;
+    font: x-small;
 }
 
 select,
@@ -222,7 +222,7 @@ body {
 .yui-t1 .yui-b {
     float: left;
     width: 12.30769em;
-    /* *width: 12.00em; */
+    width: 12.00em;
 }
 
 .yui-t1 #yui-main .yui-b {
