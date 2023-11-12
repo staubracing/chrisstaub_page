@@ -65,12 +65,12 @@ function saveTasks() {
  */
 function loadTasks() {
   // Retrieve and parse the tasks from localStorage
-  let tasks = JSON.parse(localStorage.getItem("tasks"));
+  let storedTasks = JSON.parse(localStorage.getItem("tasks"));
 
   // Check if there are any tasks stored
-  if (tasks) {
+  if (storedTasks) {
     // Iterate through each task and add it to the task list
-    tasks.forEach((taskObject) => {
+    storedTasks.forEach((taskObject) => {
       addTask(taskObject.text);
     });
   }
