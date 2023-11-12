@@ -2,22 +2,31 @@
 
 function addTask(taskValue) {
   let task = taskValue || document.getElementById("newTask").value;
-
+// Check if the task is not empty
   if (task.trim() !== "") {
+    // Create a new list item
     let newTask = document.createElement("li");
+    // Create a checkbox for the new list item
+    let checkBox = document.createElement("input"); // Create a new input element
+    checkBox.type = "checkBox"; // Set the input element's type to checkbox
+    checkBox.name = "taskItem"; // Set the input element's name to taskItem
+    checkBox.value = task; // Set the input element's value to the task
 
-    let radio = document.createElement("input");
-    radio.type = "radio";
-    radio.name = "taskItem";
-    radio.value = task;
+    newTask.appendChild(checkBox); // Add the checkbox to the list item
 
-    newTask.appendChild(radio);
+    // Create a label for the checkbox
     let textNode = document.createTextNode(task);
+
+    // Add the label to the list item
     newTask.appendChild(textNode);
+    // Add the task to the task list
+    let taskList = document.getElementById("taskList");
+    taskList.appendChild(newTask);
     
-    document.getElementById("taskList").appendChild(newTask);
+    // Clear the input field
     document.getElementById("newTask").value = "";
 
+    // Save the tasks to localStorage as a JSON string ( call the saveTasks function)
     saveTasks();
   } else {
     alert("Please enter a task.");
@@ -55,7 +64,7 @@ function clearAllTasks() {
 
 function clearSelectedTasks() {
   let tasks = document.querySelectorAll(
-    '#taskList li input[type="radio"]:checked'
+    '#taskList li input[type="checkBox"]:checked'
   );
 
   tasks.forEach((task) => {
