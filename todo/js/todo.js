@@ -45,9 +45,13 @@ function saveTasks() {
   let tasks = []; // Initialize an array to store task texts
 
   // Iterate over each task item in the task list
-  document.querySelectorAll("#taskList li").forEach((li) => {
-    let taskText = li.childNodes[1].nodeValue.trim(); // Extract and trim task text
-    tasks.push(taskText); // Add the task text to the tasks array
+  document.querySelectorAll("#taskList li").forEach((li, index) => {
+    let taskText = li.childNodes[1].textContent.trim(); // Extract and trim task text
+    let taskObject = {
+      index: index,
+      text: taskText }; // Create a task object
+
+    tasks.push(taskObject); // Add the task text to the tasks array
   });
 
   // Convert the tasks array to a JSON string and save it in localStorage
@@ -66,8 +70,8 @@ function loadTasks() {
   // Check if there are any tasks stored
   if (tasks) {
     // Iterate through each task and add it to the task list
-    tasks.forEach((task) => {
-      addTask(task);
+    tasks.forEach((taskObject) => {
+      addTask(taskObject.text);
     });
   }
 }
