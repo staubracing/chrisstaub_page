@@ -10,7 +10,8 @@ function addTask(taskValue) {
 
   // Proceed only if the task is not empty
   if (task.trim() !== "") {
-    let newTask = document.createElement("li");
+    console.log(`Adding task: ${task}`);
+    let newTask = document.createElement("li");  console.log(`New task: ${task}`);
     let checkBox = document.createElement("input");
     checkBox.type = "checkBox";
     checkBox.name = "taskItem";
@@ -30,10 +31,11 @@ function addTask(taskValue) {
 
     // Call saveTasks to save the updated task list (implementation required)
     saveTasks();
-    
+
   } else {
     // Alert if no task is entered
     alert("Please enter a task.");
+    console.error("No task entered.");
   }
 }
 
