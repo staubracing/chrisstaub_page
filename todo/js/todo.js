@@ -10,8 +10,7 @@ function addTask(taskValue) {
 
   // Proceed only if the task is not empty
   if (task.trim() !== "") {
-    console.log(`Adding task: ${task}`);
-    let newTask = document.createElement("li");  console.log(`New task: ${task}`);
+    let newTask = document.createElement("li");
     let checkBox = document.createElement("input");
     checkBox.type = "checkBox";
     checkBox.name = "taskItem";
@@ -35,7 +34,6 @@ function addTask(taskValue) {
   } else {
     // Alert if no task is entered
     alert("Please enter a task.");
-    console.error("No task entered.");
   }
 }
 
@@ -52,7 +50,8 @@ function saveTasks() {
     let taskText = li.childNodes[1].textContent.trim(); // Extract and trim task text
     let taskObject = {
       index: index,
-      text: taskText }; // Create a task object
+      text: taskText
+    }; // Create a task object
 
     tasks.push(taskObject); // Add the task text to the tasks array
   });
