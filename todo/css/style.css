@@ -20,14 +20,22 @@ ol {
    margin: 0;
 }
 
-button#tasks {
+
+button#new-task {
    background-color: rgb(255, 255, 255);
    color: rjb (255, 255, 255);
    font-size: 16px;
    padding: 10px 20px;
 }
 
-button#clear-tasks {
+button#delete-sel-tasks {
+   background-color: rgb(255, 255, 255);
+   color: rjb (255, 255, 255);
+   font-size: 16px;
+   padding: 10px 20px;
+}
+
+button#delete-all-tasks {
    background-color: red;
    color: white;
    font-size: 16px;
