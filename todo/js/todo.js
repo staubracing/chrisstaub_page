@@ -84,7 +84,7 @@ window.onload = loadTasks;
 /**
  * Clears only the selected (checked) tasks from the task list and updates localStorage.
  */
-function clearSelectedTasks() {
+function deleteSelectedTasks() {
   // Select all checked tasks in the task list
   let tasks = document.querySelectorAll('#taskList li input[type="checkBox"]:checked');
 
@@ -101,7 +101,7 @@ function clearSelectedTasks() {
 /**
  * Clears all tasks from the task list and localStorage.
  */
-function clearAllTasks() {
+function deleteAllTasks() {
   // Remove all task list items from the DOM
   document.getElementById("taskList").innerHTML = "";
 
