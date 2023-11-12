@@ -30,6 +30,7 @@ function addTask(taskValue) {
 
     // Call saveTasks to save the updated task list (implementation required)
     saveTasks();
+    
   } else {
     // Alert if no task is entered
     alert("Please enter a task.");
