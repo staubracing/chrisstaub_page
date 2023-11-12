@@ -1,51 +1,71 @@
 // This JavaScript file contains functions for managing a task list. The task list is stored in the browser's local storage.
 
+/**
+ * Adds a new task to the task list.
+ * The task can be provided as an argument or taken from the HTML input with ID 'newTask'.
+ */
 function addTask(taskValue) {
+  // Determine the task value, preferring taskValue if provided and truthy
   let task = taskValue || document.getElementById("newTask").value;
-// Check if the task is not empty
+
+  // Proceed only if the task is not empty
   if (task.trim() !== "") {
-    // Create a new list item
     let newTask = document.createElement("li");
-    // Create a checkbox for the new list item
-    let checkBox = document.createElement("input"); // Create a new input element
-    checkBox.type = "checkBox"; // Set the input element's type to checkbox
-    checkBox.name = "taskItem"; // Set the input element's name to taskItem
-    checkBox.value = task; // Set the input element's value to the task
+    let checkBox = document.createElement("input");
+    checkBox.type = "checkBox";
+    checkBox.name = "taskItem";
+    checkBox.value = task; // Link checkbox to the task value
 
-    newTask.appendChild(checkBox); // Add the checkbox to the list item
+    newTask.appendChild(checkBox); // Add checkbox to the list item
 
-    // Create a label for the checkbox
     let textNode = document.createTextNode(task);
+    newTask.appendChild(textNode); // Add task text to the list item
 
-    // Add the label to the list item
-    newTask.appendChild(textNode);
-    // Add the task to the task list
+    // Append the new task to the task list in the UI
     let taskList = document.getElementById("taskList");
     taskList.appendChild(newTask);
-    
+
     // Clear the input field
     document.getElementById("newTask").value = "";
 
-    // Save the tasks to localStorage as a JSON string ( call the saveTasks function)
+    // Call saveTasks to save the updated task list (implementation required)
     saveTasks();
   } else {
+    // Alert if no task is entered
     alert("Please enter a task.");
   }
 }
 
+
+/**
+ * Saves the current tasks to localStorage.
+ * Each task's text is extracted from the task list and stored.
+ */
 function saveTasks() {
-  let tasks = []; // Create an empty array to store the tasks
+  let tasks = []; // Initialize an array to store task texts
+
+  // Iterate over each task item in the task list
   document.querySelectorAll("#taskList li").forEach((li) => {
-    // Loop through each list item in the task list
-    let taskText = li.childNodes[1].nodeValue.trim(); // Get the text of the task and trim any whitespace from the beginning and end
-    tasks.push(taskText); // Add the task to the array of tasks to save to localStorage
+    let taskText = li.childNodes[1].nodeValue.trim(); // Extract and trim task text
+    tasks.push(taskText); // Add the task text to the tasks array
   });
-  localStorage.setItem("tasks", JSON.stringify(tasks)); // Save the tasks to localStorage as a JSON string
+
+  // Convert the tasks array to a JSON string and save it in localStorage
+  localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
+
+/**
+ * Loads and displays tasks from localStorage.
+ * Each stored task is added to the task list using the addTask function.
+ */
 function loadTasks() {
+  // Retrieve and parse the tasks from localStorage
   let tasks = JSON.parse(localStorage.getItem("tasks"));
+
+  // Check if there are any tasks stored
   if (tasks) {
+    // Iterate through each task and add it to the task list
     tasks.forEach((task) => {
       addTask(task);
     });
@@ -54,22 +74,32 @@ function loadTasks() {
 
 window.onload = loadTasks;
 
+/**
+ * Clears only the selected (checked) tasks from the task list and updates localStorage.
+ */
+function clearSelectedTasks() {
+  // Select all checked tasks in the task list
+  let tasks = document.querySelectorAll('#taskList li input[type="checkBox"]:checked');
+
+  // Remove each selected task's list item from the DOM
+  tasks.forEach((task) => {
+    task.parentElement.remove();
+  });
+
+  // Update the remaining tasks in localStorage
+  saveTasks();
+}
+
+
+/**
+ * Clears all tasks from the task list and localStorage.
+ */
 function clearAllTasks() {
-  // Clear the tasks from the DOM
+  // Remove all task list items from the DOM
   document.getElementById("taskList").innerHTML = "";
 
-  // Clear the tasks from localStorage
+  // Remove stored tasks data from localStorage
   localStorage.removeItem("tasks");
 }
 
-function clearSelectedTasks() {
-  let tasks = document.querySelectorAll(
-    '#taskList li input[type="checkBox"]:checked'
-  );
 
-  tasks.forEach((task) => {
-    task.parentElement.remove(); // Removes the list item
-  });
-
-  saveTasks(); // Update the tasks in localStorage after deletion
-}
