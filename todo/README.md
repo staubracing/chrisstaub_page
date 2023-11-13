@@ -34,17 +34,23 @@ This function clears the completed tasks from the task list. It removes all list
 
 * Editing Tasks: Allow users to edit the text of existing tasks.
 * Reordering Tasks: Implement drag-and-drop functionality to reorder tasks.
+* Task Notes: Add the ability to add notes to tasks.
+* Task Attachments: Allow users to attach files to tasks.
+
 
 ### Persistence and Reliability:
 
 * Cloud Sync: Instead of localStorage, consider syncing tasks with a backend server or cloud database, which would allow task access across devices.
 * Offline Support: Implement service workers to allow users to access and modify tasks even when offline.
 
+
 ### User Experience:
 
 * Categories/Tags: Add the ability to categorize or tag tasks for better organization.
 * Due Dates: Allow users to set due dates for tasks, and display them in order of urgency.
 * Task Priority: Introduce a priority system (e.g., high, medium, low) to help users focus on the most critical tasks.
+* Task Sharing: Allow users to share tasks with other users.
+* Task Search: Implement a search feature to allow users to find tasks quickly.
 
 ### User Interface:
 
