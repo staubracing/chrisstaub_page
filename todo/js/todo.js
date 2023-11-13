@@ -5,7 +5,6 @@
 function addTask(taskValue) {
   
   let task = taskValue || document.getElementById("newTask").value;
-
   
   if (task.trim() !== "") {
     let newTask = document.createElement("li");
@@ -31,7 +30,6 @@ function addTask(taskValue) {
   }
 }
 
-
 /**
  * Saves the current tasks to localStorage.
  * Each task's text is extracted from the task list and stored.
@@ -48,7 +46,6 @@ function saveTasks() {
   });
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
-
 
 /**
  * Loads and displays tasks from localStorage.
@@ -78,7 +75,6 @@ function deleteSelectedTasks() {
   saveTasks();
 
 }
-
 
 /**
  * Clears all tasks from the task list and localStorage.
