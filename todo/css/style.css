@@ -25,7 +25,8 @@ button#new-task {
    background-color: rgb(255, 255, 255);
    color: rjb (255, 255, 255);
    font-size: 16px;
-   padding: 10px 20px;
+   padding: 10px 20px; /* padding between text and border */
+   margin: 10px 10px 10px 10px; /* margin between buttons */ 
 }
 
 button#delete-sel-tasks {
@@ -33,6 +34,7 @@ button#delete-sel-tasks {
    color: rjb (255, 255, 255);
    font-size: 16px;
    padding: 10px 20px;
+   margin: 10px 10px 10px 10px; /* margin between buttons */ 
 }
 
 button#delete-all-tasks {
@@ -40,4 +42,5 @@ button#delete-all-tasks {
    color: white;
    font-size: 16px;
    padding: 10px 20px;
+   margin: 10px 10px 10px 10px; /* margin between buttons */ 
 }
