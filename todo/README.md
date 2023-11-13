@@ -16,66 +16,66 @@ This function saves the current task list to local storage. It creates an array 
 
 This function loads the task list from local storage. It retrieves the array of tasks from local storage, parses it from a JSON string to an array, and then adds each task to the task list by calling `addTask()`.
 
-### clearTasks()
+### clearTasks() (not implemented)
 
 This function clears the task list. It removes all list items from the 'taskList' element, and then calls `saveTasks()` to save the empty task list to local storage.
 
-### clearSelectedTasks()
+### deleteSelectedTasks()
 
 This function clears the selected tasks from the task list. It removes all list items from the 'taskList' element that have a checked radio button, and then calls `saveTasks()` to save the updated task list to local storage.
 
-### clearCompletedTasks() (not implemented)
+### deleteSelectedTasks() 
 
 This function clears the completed tasks from the task list. It removes all list items from the 'taskList' element that have a checked radio button, and then calls `saveTasks()` to save the updated task list to local storage.
 
-## Ideas
+# Ideas
 
 ### Task Manipulation:
 
-#### Editing Tasks: 
-Allow users to edit the text of existing tasks.
-Reordering Tasks: Implement drag-and-drop functionality to reorder tasks.
-Persistence and Reliability:
+* Editing Tasks: Allow users to edit the text of existing tasks.
+* Reordering Tasks: Implement drag-and-drop functionality to reorder tasks.
 
-#### Cloud Sync: 
-Instead of localStorage, consider syncing tasks with a backend server or cloud database, which would allow task access across devices.
-Offline Support: Implement service workers to allow users to access and modify tasks even when offline.
-User Experience:
+### Persistence and Reliability:
 
-### Categories/Tags: 
-Add the ability to categorize or tag tasks for better organization.
-Due Dates: Allow users to set due dates for tasks, and display them in order of urgency.
-Task Priority: Introduce a priority system (e.g., high, medium, low) to help users focus on the most critical tasks.
-User Interface:
+* Cloud Sync: Instead of localStorage, consider syncing tasks with a backend server or cloud database, which would allow task access across devices.
+* Offline Support: Implement service workers to allow users to access and modify tasks even when offline.
 
-### Animations and Transitions: 
-Add subtle animations for task addition/removal for a polished feel.
-Responsive Design: Ensure that your app looks great on all devices by implementing a responsive design.
-Notifications and Reminders:
+### User Experience:
 
-### Reminders: 
-Allow users to set reminders for tasks that will notify them at a specified time.
-Recurring Tasks: Implement functionality for tasks that recur on a daily, weekly, or custom basis.
-Data Visualization:
+* Categories/Tags: Add the ability to categorize or tag tasks for better organization.
+* Due Dates: Allow users to set due dates for tasks, and display them in order of urgency.
+* Task Priority: Introduce a priority system (e.g., high, medium, low) to help users focus on the most critical tasks.
 
-### Progress Tracking: 
-Show some form of progress tracking, such as a completed tasks graph or a streak counter for consecutive days of completing tasks.
-Accessibility:
+### User Interface:
 
-### Keyboard Navigation:
-Make sure that users can navigate your app using only a keyboard.
-Screen Reader Support: Ensure that screen reader users can use your app effectively.
-Testing and Quality Assurance:
+* Animations and Transitions: Add subtle animations for task addition/removal for a polished feel.
+* Responsive Design: Ensure that your app looks great on all devices by implementing a responsive design.
 
-### Unit Tests:
-Write unit tests for your JavaScript functions to ensure they work as expected.
-Cross-Browser Testing: Test your app across different browsers for compatibility.
-Performance Optimization:
+### Notifications and Reminders:
 
-### Lazy Loading:
-If your app grows, consider techniques like lazy loading for better performance.
-Caching Strategies: Implement caching for faster load times.
-User Authentication:
+* Reminders: Allow users to set reminders for tasks that will notify them at a specified time.
+* Recurring Tasks: Implement functionality for tasks that recur on a daily, weekly, or custom basis.
 
-### Login System: 
-If you plan on syncing data across devices, you'll need a user authentication system.
+### Data Visualization:
+
+* Progress Tracking: Show some form of progress tracking, such as a completed tasks graph or a streak counter for consecutive days of completing tasks.
+* Data Export: Allow users to export their task data in a common format, such as CSV or JSON.
+
+### Accessibility:
+
+* Keyboard Navigation: Make sure that users can navigate your app using only a keyboard.
+* Screen Reader Support: Ensure that screen reader users can use your app effectively.
+
+### Testing and Quality Assurance:
+
+* Unit Tests: Write unit tests for your JavaScript functions to ensure they work as expected.
+* Cross-Browser Testing: Test your app across different browsers for compatibility.
+
+### Performance Optimization:
+
+* Lazy Loading: If your app grows, consider techniques like lazy loading for better performance.
+* Caching Strategies: Implement caching for faster load times.
+
+### User Authentication:
+
+* Login System: If you plan on syncing data across devices, you'll need a user authentication system.
