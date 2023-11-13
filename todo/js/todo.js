@@ -25,15 +25,14 @@ function addTask(taskValue) {
     let taskList = document.getElementById("taskList");
     taskList.appendChild(newTask);
 
-    // Clear the input field
+   
     document.getElementById("newTask").value = "";
 
-    // Call saveTasks to save the updated task list (implementation required)
+    
     saveTasks();
 
   } else {
-    // Alert if no task is entered
-    alert("Please enter a task.");
+      alert("Please enter a task.");
   }
 }
 
