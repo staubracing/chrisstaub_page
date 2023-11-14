@@ -24,8 +24,8 @@ function addTask(taskValue) {
     taskList.appendChild(newTask);
 
     taskcount++;
-    const threshold = 5;
-    if(taskcount > threshold){
+    const threshold = 4;
+    if(taskcount >= threshold){
       alert("Really, Joe? You think you'll get all of these done?.");
     }
 
@@ -34,9 +34,12 @@ function addTask(taskValue) {
     
     saveTasks();
 
+    document.getElementById('newTask').focus();
+
   } else {
       alert("Please enter a task.");
   }
+
 }
 
 /**
