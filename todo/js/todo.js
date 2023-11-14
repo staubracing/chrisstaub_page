@@ -2,6 +2,8 @@
  * Adds a new task to the task list.
  * The task can be provided as an argument or taken from the HTML input with ID 'newTask'.
  */
+let taskcount = 0;
+
 function addTask(taskValue) {
   
   let task = taskValue || document.getElementById("newTask").value;
@@ -20,6 +22,13 @@ function addTask(taskValue) {
     
     let taskList = document.getElementById("taskList");
     taskList.appendChild(newTask);
+
+    taskcount++;
+    const threshold = 5;
+    if(taskcount > threshold){
+      alert("Really, Joe? You think you'll get all of these done?.");
+    }
+
    
     document.getElementById("newTask").value = "";
     
