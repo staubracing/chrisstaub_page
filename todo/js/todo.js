@@ -2,6 +2,8 @@
  * Adds a new task to the task list.
  * The task can be provided as an argument or taken from the HTML input with ID 'newTask'.
  */
+let taskIdCounter = 0;
+
 function addTask(taskValue) {
   
   let task = taskValue || document.getElementById("newTask").value;
@@ -13,6 +15,7 @@ function addTask(taskValue) {
     checkBox.name = "taskItem";
     checkBox.value = task;
 
+    newTask.setAttribute('data-task-id', taskIdCounter++);
     newTask.appendChild(checkBox);
 
     let textNode = document.createTextNode(task);
@@ -38,10 +41,11 @@ function addTask(taskValue) {
  */
 function saveTasks() {
   let tasks = [];  
-  document.querySelectorAll("#taskList li").forEach((li, index) => {
+  document.querySelectorAll("#taskList li").forEach((li) => {
+    let TaskID = li.getAttribute("data-task-id");
     let taskText = li.childNodes[1].textContent.trim();
     let taskObject = {
-      index: index,
+      id: TaskID,
       text: taskText
     };
     tasks.push(taskObject);
