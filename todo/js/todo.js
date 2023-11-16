@@ -1,9 +1,3 @@
-
-function logUUID() {
-  const testUuid = uuid.v4();
-  console.log(`this is uuid ${testUuid}`);
-}
-
 /**
  * Adds a new task to the task list.
  * The task can be provided as an argument or taken from the HTML input with ID 'newTask'.
