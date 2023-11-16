@@ -2,45 +2,31 @@ body {
    background-color: black;
 }
 
-h1 {
+/* combined elements */
+h1, ol, li {
    color: white;
 }
 
-li {
-   color: white;
-}
-
-ol {
-   color: white;
-}
-
-#taskList {
+.staub-task-list {
    list-style-type: none;
    padding: 0;
    margin: 0;
 }
 
-
-button#new-task {
-   background-color: rgb(255, 255, 255);
-   color: rjb (255, 255, 255);
-   font-size: 16px;
-   padding: 10px 20px; /* padding between text and border */
-   margin: 10px 10px 10px 10px; /* margin between buttons */ 
-}
-
-button#delete-sel-tasks {
-   background-color: rgb(255, 255, 255);
-   color: rjb (255, 255, 255);
+/* reduced repetitive styling */
+/* use classes instead of IDs */
+.staub-button{
    font-size: 16px;
    padding: 10px 20px;
-   margin: 10px 10px 10px 10px; /* margin between buttons */ 
+   margin: 10px 10px 10px 10px; /* margin between buttons */
 }
 
-button#delete-all-tasks {
+.staub-green{
+   background-color: green;
+   color: white;
+}
+
+.staub-red{
    background-color: red;
    color: white;
-   font-size: 16px;
-   padding: 10px 20px;
-   margin: 10px 10px 10px 10px; /* margin between buttons */ 
 }

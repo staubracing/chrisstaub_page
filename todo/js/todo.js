@@ -1,7 +1,8 @@
-import { v4 as uuidv4 } from 'uuid';
-const testUuid = uuidv4();
-console.log(`this is uuid ${testUuid}`);
 
+function logUUID() {
+  const testUuid = uuid.v4();
+  console.log(`this is uuid ${testUuid}`);
+}
 
 /**
  * Adds a new task to the task list.
