@@ -1,9 +1,10 @@
+import { v4 as uuidv4 } from 'uuid';
+uuidv4(); // returns  '110ec58a-a0f2-4ac4-8393-c866d813b8d1'
+
 /**
  * Adds a new task to the task list.
  * The task can be provided as an argument or taken from the HTML input with ID 'newTask'.
  */
-let taskIdCounter = 0;
-
 function addTask(taskValue) {
   
   let task = taskValue || document.getElementById("newTask").value;
@@ -15,7 +16,9 @@ function addTask(taskValue) {
     checkBox.name = "taskItem";
     checkBox.value = task;
 
-    newTask.setAttribute('data-task-id', taskIdCounter++);
+
+    const newUuid = uuidv4();
+    newTask.setAttribute('data-task-id', newUuid);
     newTask.appendChild(checkBox);
 
     let textNode = document.createTextNode(task);
@@ -40,12 +43,12 @@ function addTask(taskValue) {
  * Each task's text is extracted from the task list and stored.
  */
 function saveTasks() {
-  let tasks = [];  
+  let tasks = [];
   document.querySelectorAll("#taskList li").forEach((li) => {
-    let TaskID = li.getAttribute("data-task-id");
+    let taskId = li.getAttribute("data-task-id");
     let taskText = li.childNodes[1].textContent.trim();
     let taskObject = {
-      id: TaskID,
+      id: taskId,
       text: taskText
     };
     tasks.push(taskObject);
