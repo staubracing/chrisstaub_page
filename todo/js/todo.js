@@ -1,5 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
-uuidv4(); // returns  '110ec58a-a0f2-4ac4-8393-c866d813b8d1'
+const testUuid = uuidv4();
+console.log(`this is uuid ${testUuid}`);
+
 
 /**
  * Adds a new task to the task list.
@@ -18,6 +20,8 @@ function addTask(taskValue) {
 
 
     const newUuid = uuidv4();
+    console.log(newUuid);
+    
     newTask.setAttribute('data-task-id', newUuid);
     newTask.appendChild(checkBox);
 
