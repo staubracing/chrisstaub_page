@@ -37,13 +37,6 @@ This function clears the completed tasks from the task list. It removes all list
 * Task Notes: Add the ability to add notes to tasks.
 * Task Attachments: Allow users to attach files to tasks.
 
-
-### Persistence and Reliability:
-
-* Cloud Sync: Instead of localStorage, consider syncing tasks with a backend server or cloud database, which would allow task access across devices.
-* Offline Support: Implement service workers to allow users to access and modify tasks even when offline.
-
-
 ### User Experience:
 
 * Categories/Tags: Add the ability to categorize or tag tasks for better organization.
@@ -54,8 +47,17 @@ This function clears the completed tasks from the task list. It removes all list
 
 ### User Interface:
 
+* Use form elements: Use form elements for task addition and deletion.
 * Animations and Transitions: Add subtle animations for task addition/removal for a polished feel.
 * Responsive Design: Ensure that your app looks great on all devices by implementing a responsive design.
+* Theming: Add the ability to change the color scheme of your app.
+
+### Persistence and Reliability:
+
+* Cloud Sync: Instead of localStorage, consider syncing tasks with a backend server or cloud database, which would allow task access across devices.
+* Offline Support: Implement service workers to allow users to access and modify tasks even when offline.
+
+
 
 ### Notifications and Reminders:
 
