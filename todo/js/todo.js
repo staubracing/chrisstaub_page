@@ -20,7 +20,7 @@ function addTask(taskValue) {
     checkBox.value = task;
 
 
-    const newUuid = uuidv4();
+    const newUuid = uuid.v4();
     console.log(newUuid);
     
     newTask.setAttribute('data-task-id', newUuid);
