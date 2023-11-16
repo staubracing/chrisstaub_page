@@ -1,5 +1,8 @@
 body {
    background-color: black;
+   font-family: 'Source Code Pro', monospace;
+   margin: auto;
+   text-align: center;
 }
 
 /* combined elements */
@@ -13,12 +16,38 @@ h1, ol, li {
    margin: 0;
 }
 
+.staub-task-list li {
+   padding-top: 15px;
+   display: block;
+   text-align: left;
+   margin: auto;
+   width: 400px;
+}
+
 /* reduced repetitive styling */
 /* use classes instead of IDs */
 .staub-button{
    font-size: 16px;
    padding: 10px 20px;
-   margin: 10px 10px 10px 10px; /* margin between buttons */
+   margin: 10px auto;
+   width: 400px;
+   display: block;
+   border: none;
+   border-radius: 10px;
+}
+
+.staub-button:active{
+   background-color: #444444;
+}
+
+.staub-input{
+   font-size: 16px;
+   padding: 10px 20px;
+   margin: 10px auto;
+   display: block;
+   border: none;
+   border-radius: 10px;
+   width: 360px;
 }
 
 .staub-green{

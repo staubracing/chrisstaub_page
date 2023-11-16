@@ -6,15 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel='stylesheet' href='css/style.css'>
   <title>To-Do List</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
 </head>
 
 <body>
   <h1>Coding Tasks To Try</h1>
-  <input type="text" id="newTask">
-  <button class="staub-button" onclick="addTask()">New Task</button>
-  <button class="staub-button" onclick="deleteSelectedTasks()">Delete Selected Tasks</button>
   <button class="staub-button staub-red" onclick="deleteAllTasks()">Delete All Tasks</button>
-  <button class="staub-button staub-green" onclick="logUUID()">Log UUID</button>
+  <button class="staub-button" onclick="deleteSelectedTasks()">Delete Selected Tasks</button>
+  <button class="staub-button staub-green" onclick="addTask()">New Task</button>
+  <input class="staub-input" type="text" id="newTask">
 
 
   <ul id="taskList" class="staub-task-list"></ul>
