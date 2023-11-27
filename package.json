@@ -1,3 +1,17 @@
 {
-  "type": "module"
+  "type": "module",
+  "name": "chrisstaub_site",
+  "description": "This is a website to store my Bio, Resume, and general stuff",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
