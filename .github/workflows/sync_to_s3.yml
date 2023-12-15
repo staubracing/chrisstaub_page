@@ -20,5 +20,3 @@ jobs:
     - name: Sync to S3
       run: aws s3 sync . s3://dev.chrisstaub.com --exclude ".git/*" --exclude "README.md" --exclude ".github/*" --exclude ".gitignore" --exclude "package-lock.json" --exclude "package.json" --exclude "node_modules/*"
 
-    # - name: Invalidate CloudFront Distribution
-    #   run: aws cloudfront create-invalidation --distribution-id E2BU3AFPICGS4A --paths "/*"
