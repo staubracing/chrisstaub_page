@@ -9,6 +9,4 @@ coverage
 # ignore the dist directory
 dist
 
-# Ignore the .github directory in the development branch only
-/.github/*
-!.github/workflows/
+
