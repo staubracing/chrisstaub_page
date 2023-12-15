@@ -1,1 +1,12 @@
 node_modules
+
+# ignore the build directory
+build
+
+# ignore the coverage directory
+coverage
+
+# ignore the dist directory
+dist
+
+
