@@ -1,61 +1,63 @@
 body {
-   background-color: black;
-   font-family: 'Source Code Pro', monospace;
-   margin: auto;
-   text-align: center;
+  background-color: black;
+  font-family: 'Source Code Pro', monospace;
+  margin: auto;
+  text-align: center;
 }
 
 /* combined elements */
-h1, ol, li {
-   color: white;
+h1,
+ol,
+li {
+  color: white;
 }
 
 .staub-task-list {
-   list-style-type: none;
-   padding: 0;
-   margin: 0;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 .staub-task-list li {
-   padding-top: 15px;
-   display: block;
-   text-align: left;
-   margin: auto;
-   width: 400px;
+  padding-top: 15px;
+  display: block;
+  text-align: left;
+  margin: auto;
+  width: 400px;
 }
 
 /* reduced repetitive styling */
 /* use classes instead of IDs */
-.staub-button{
-   font-size: 16px;
-   padding: 10px 20px;
-   margin: 10px auto;
-   width: 400px;
-   display: block;
-   border: none;
-   border-radius: 10px;
+.staub-button {
+  font-size: 16px;
+  padding: 10px 20px;
+  margin: 10px auto;
+  width: 400px;
+  display: block;
+  border: none;
+  border-radius: 10px;
 }
 
-.staub-button:active{
-   background-color: #444444;
+.staub-button:active {
+  background-color: #444444;
 }
 
-.staub-input{
-   font-size: 16px;
-   padding: 10px 20px;
-   margin: 10px auto;
-   display: block;
-   border: none;
-   border-radius: 10px;
-   width: 360px;
+.staub-input {
+  font-size: 16px;
+  padding: 10px 20px;
+  margin: 10px auto;
+  display: block;
+  border: none;
+  border-radius: 10px;
+  width: 360px;
 }
 
-.staub-green{
-   background-color: green;
-   color: white;
+.staub-green {
+  background-color: green;
+  color: white;
 }
 
-.staub-red{
-   background-color: red;
-   color: white;
+.staub-red {
+  background-color: red;
+  color: white;
 }

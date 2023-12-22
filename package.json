@@ -1,3 +1,10 @@
 {
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "prettier": "^3.1.1"
+  },
+  "scripts": {
+    "prettier-check": "prettier --check .",
+    "prettier-write": "prettier --write ."
+  }
 }
