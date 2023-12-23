@@ -22,11 +22,11 @@ jobs:
 
       - name: Sync to S3 (Development)
         if: github.ref == 'refs/heads/development'
-        run: aws s3 sync . s3://dev.chrisstaub.com --exclude ".git/*" --exclude "README.md" --exclude ".github/*" --exclude ".gitignore" --exclude "package-lock.json" --exclude "package.json" --exclude "node_modules/*"
+        run: aws s3 sync . s3://dev.chrisstaub.com --exclude ".git/*" --exclude "README.md" --exclude ".github/*" --exclude ".gitignore" --exclude "package-lock.json" --exclude "package.json" --exclude "node_modules/*" --exclude "yarn.lock" --exclude ".prettierrc" --exclude ".prettierignore" --exclude ".eslintrc.json"
 
       - name: Sync to S3 (Main)
         if: github.ref == 'refs/heads/main'
-        run: aws s3 sync . s3://chrisstaub.com --exclude ".git/*" --exclude "README.md" --exclude ".github/*" --exclude ".gitignore" --exclude "package-lock.json" --exclude "package.json"
+        run: aws s3 sync . s3://chrisstaub.com --exclude ".git/*" --exclude "README.md" --exclude ".github/*" --exclude ".gitignore" --exclude "package-lock.json" --exclude "package.json" --exclude "yarn.lock" --exclude ".prettierrc" --exclude ".prettierignore" --exclude ".eslintrc.json"
 
       - name: Invalidate CloudFront Distribution
         if: github.ref == 'refs/heads/main'
