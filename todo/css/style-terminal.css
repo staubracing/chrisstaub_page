@@ -1,62 +1,67 @@
 body {
-   background-color: black;
-   font-family: 'Source Code Pro', monospace;
-   margin: auto;
-   text-align: center;
-   color: #0f0; /* Retro green text */
+  background-color: black;
+  font-family: 'Source Code Pro', monospace;
+  margin: auto;
+  text-align: center;
+  color: #0f0; /* Retro green text */
 }
 
 /* combined elements */
-h1, ol, li {
-   color: #0f0; /* Retro green text */
+h1,
+ol,
+li {
+  color: #0f0; /* Retro green text */
 }
 
 .staub-task-list {
-   list-style-type: none;
-   padding: 0;
-   margin: 0;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 .staub-task-list li {
-   padding-top: 15px;
-   display: block;
-   text-align: left;
-   margin: auto;
-   width: 400px;
-   color: #0f0; /* Retro green text */
+  padding-top: 15px;
+  display: block;
+  text-align: left;
+  margin: auto;
+  width: 400px;
+  color: #0f0; /* Retro green text */
 }
 
-.staub-button{
-   font-size: 16px;
-   padding: 10px 20px;
-   margin: 10px auto;
-   width: 400px;
-   display: block;
-   border: 1px solid #0f0; /* Retro green border */
-   border-radius: 10px;
-   background-color: black; /* Black background */
-   color: #0f0; /* Retro green text */
+.staub-button {
+  font-size: 16px;
+  padding: 10px 20px;
+  margin: 10px auto;
+  width: 400px;
+  display: block;
+  border: 1px solid #0f0; /* Retro green border */
+  border-radius: 10px;
+  background-color: black; /* Black background */
+  color: #0f0; /* Retro green text */
 }
 
-.staub-button:active{
-   background-color: #444444;
-   color: #0f0; /* Ensure text remains retro green */
+.staub-button:active {
+  background-color: #444444;
+  color: #0f0; /* Ensure text remains retro green */
 }
 
-.staub-input, staub-input:focus, staub-input:active, staub-input:hover{
-   font-size: 16px;
-   padding: 10px 20px;
-   margin: 10px auto;
-   display: block;
-   border: 1px solid #0f0; /* Retro green border */
-   border-radius: 10px;
-   width: 360px;
-   background-color: black; /* Black background */
-   color: #0f0; /* Retro green text */
-   border: dashed;
+.staub-input,
+staub-input:focus,
+staub-input:active,
+staub-input:hover {
+  font-size: 16px;
+  padding: 10px 20px;
+  margin: 10px auto;
+  display: block;
+  border: 1px solid #0f0; /* Retro green border */
+  border-radius: 10px;
+  width: 360px;
+  background-color: black; /* Black background */
+  color: #0f0; /* Retro green text */
+  border: dashed;
 }
 
-.staub-red{
-   border-color: red;
-   color: red;
+.staub-red {
+  border-color: red;
+  color: red;
 }

@@ -1,33 +1,39 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style-terminal.css" />
+    <title>To-Do List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel='stylesheet' href='css/style-terminal.css'>
-  <title>To-Do List</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
-</head>
+  <body>
+    <h1>Coding Tasks To Try</h1>
+    <button class="staub-button staub-red" onclick="deleteAllTasks()">
+      Delete All Tasks
+    </button>
+    <button class="staub-button" onclick="deleteSelectedTasks()">
+      Delete Selected Tasks
+    </button>
+    <button class="staub-button staub-green" onclick="addTask()">
+      New Task
+    </button>
+    <input class="staub-input" type="text" id="newTask" />
 
-<body>
-  <h1>Coding Tasks To Try</h1>
-  <button class="staub-button staub-red" onclick="deleteAllTasks()">Delete All Tasks</button>
-  <button class="staub-button" onclick="deleteSelectedTasks()">Delete Selected Tasks</button>
-  <button class="staub-button staub-green" onclick="addTask()">New Task</button>
-  <input class="staub-input" type="text" id="newTask">
+    <ul id="taskList" class="staub-task-list"></ul>
+    <script src="js/todo.js"></script>
+    <script src="js/uuid.min.js"></script>
 
-
-  <ul id="taskList" class="staub-task-list"></ul>
-  <script src="js/todo.js"></script>
-  <script src="js/uuid.min.js"></script>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      document.getElementById("newTask").focus();
-    });
-  </script>
-</body>
-
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('newTask').focus();
+      });
+    </script>
+  </body>
 </html>

@@ -1,5 +1,6 @@
 {
   "type": "module",
+<<<<<<< HEAD
   "name": "chrisstaub_site",
   "description": "This is a website to store my Bio, Resume, and general stuff",
   "version": "1.0.0",
@@ -14,4 +15,13 @@
   "keywords": [],
   "author": "",
   "license": "ISC"
+=======
+  "devDependencies": {
+    "prettier": "^3.1.1"
+  },
+  "scripts": {
+    "prettier-check": "prettier --check .",
+    "prettier-write": "prettier --write ."
+  }
+>>>>>>> development
 }
