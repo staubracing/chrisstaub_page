@@ -9,8 +9,7 @@ coverage
 # ignore the dist directory
 dist
 
-# ignore VSCode settings
-.vscode/*
+
 
 
 
