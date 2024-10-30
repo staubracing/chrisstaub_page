@@ -10,5 +10,7 @@ coverage
 dist
 
 # ignore VSCode settings
-.vscode
+.vscode/*
+
+
 
