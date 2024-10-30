@@ -26,7 +26,7 @@ jobs:
 
       - name: Sync to S3 (Main)
         if: github.ref == 'refs/heads/main'
-        run: aws s3 sync . s3://chrisstaub.com --exclude ".git/*" --exclude "README.md" --exclude ".github/*" --exclude ".gitignore" --exclude "package-lock.json" --exclude "package.json" --exclude "yarn.lock" --exclude ".prettierrc" --exclude ".prettierignore" --exclude ".eslintrc.json"
+        run: aws s3 sync . s3://chrisstaub.com --exclude ".git/*" --exclude "README.md" --exclude ".github/*" --exclude ".gitignore" --exclude "package-lock.json" --exclude "package.json" --exclude "yarn.lock" --exclude ".prettierrc" --exclude ".prettierignore" --exclude ".eslintrc.json" --exclude ".v
 
       - name: Invalidate CloudFront Distribution
         if: github.ref == 'refs/heads/main'
