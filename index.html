@@ -106,33 +106,23 @@
       </section>
 
       <section class="card" id="projects">
-        <h2>Learning Projects</h2>
-        <ul class="link-list">
-          <li>
-            <a href="/Project-3/" target="_blank" rel="noreferrer">
-              Project 3 · Develop Yourself Podcast Companion
+        <h2>Featured Projects</h2>
+        <div class="project-grid">
+          <article class="project-card">
+            <h3>Employee Directory</h3>
+            <p>A JavaScript-powered team roster with real-time search functionality, built with modern web practices and accessibility in mind.</p>
+            <a href="/Project-3/" target="_blank" rel="noreferrer" class="project-link">
+              View Project →
             </a>
-          </li>
-          <li>
-            <a
-              href="https://jerrysdadjokes.com/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Jerry's Dad Jokes
+          </article>
+          <article class="project-card">
+            <h3>Jerry's Dad Jokes</h3>
+            <p>A tribute to my father-in-law's legendary humor, featuring an API-powered joke generator with a clean, engaging interface.</p>
+            <a href="https://jerrysdadjokes.com/" target="_blank" rel="noreferrer" class="project-link">
+              Visit Site →
             </a>
-          </li>
-          <li>
-            <a href="/mysite/" target="_blank" rel="noreferrer">
-              HTML &amp; CSS Tutorial Site
-            </a>
-          </li>
-          <li>
-            <a href="/todo/" target="_blank" rel="noreferrer">
-              Terminal-Inspired To-Do App
-            </a>
-          </li>
-        </ul>
+          </article>
+        </div>
       </section>
 
       <section class="card" id="contact">
@@ -171,6 +161,44 @@
       if (yearElement) {
         yearElement.textContent = new Date().getFullYear();
       }
+
+      // Enhanced navigation with active state
+      const navLinks = document.querySelectorAll('.primary-nav a[href^="#"]');
+      const sections = document.querySelectorAll('section[id]');
+
+      function updateActiveNav() {
+        const scrollPos = window.scrollY + 100;
+        
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.offsetHeight;
+          const sectionId = section.getAttribute('id');
+          
+          if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+            navLinks.forEach(link => {
+              link.classList.remove('active');
+              if (link.getAttribute('href') === `#${sectionId}`) {
+                link.classList.add('active');
+              }
+            });
+          }
+        });
+      }
+
+      // Throttled scroll listener for better performance
+      let ticking = false;
+      function onScroll() {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            updateActiveNav();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }
+
+      window.addEventListener('scroll', onScroll);
+      updateActiveNav(); // Initial call
     </script>
   </body>
 </html>
