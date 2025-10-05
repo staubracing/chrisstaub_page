@@ -110,22 +110,47 @@
         <div class="project-grid">
           <article class="project-card">
             <h3>Employee Directory</h3>
-            <p>A JavaScript-powered team roster with real-time search functionality, built with modern web practices and accessibility in mind.</p>
-            <a href="/Project-3/" target="_blank" rel="noreferrer" class="project-link">
+            <p>
+              A JavaScript-powered team roster with real-time search
+              functionality, built with modern web practices and accessibility
+              in mind.
+            </p>
+            <a
+              href="/Project-3/"
+              target="_blank"
+              rel="noreferrer"
+              class="project-link"
+            >
               View Project →
             </a>
           </article>
           <article class="project-card">
             <h3>Jerry's Dad Jokes</h3>
-            <p>A tribute to my father-in-law's legendary humor, featuring an API-powered joke generator with a clean, engaging interface.</p>
-            <a href="https://jerrysdadjokes.com/" target="_blank" rel="noreferrer" class="project-link">
+            <p>
+              A tribute to my father-in-law's legendary humor, featuring an
+              API-powered joke generator with a clean, engaging interface.
+            </p>
+            <a
+              href="https://jerrysdadjokes.com/"
+              target="_blank"
+              rel="noreferrer"
+              class="project-link"
+            >
               Visit Site →
             </a>
           </article>
           <article class="project-card">
             <h3>Terminal To-Do App</h3>
-            <p>A terminal-inspired task manager with a retro aesthetic, built with vanilla JavaScript and featuring local storage persistence.</p>
-            <a href="/todo/" target="_blank" rel="noreferrer" class="project-link">
+            <p>
+              A terminal-inspired task manager with a retro aesthetic, built
+              with vanilla JavaScript and featuring local storage persistence.
+            </p>
+            <a
+              href="/todo/"
+              target="_blank"
+              rel="noreferrer"
+              class="project-link"
+            >
               View App →
             </a>
           </article>
@@ -145,7 +170,7 @@
               href="https://linkedin.com/in/christopher-staub-engineer"
               target="_blank"
               rel="noreferrer"
-              >linkedin.com/in/christopher-staub-engineer</a
+              >Christopher Staub Mfg Engineer</a
             >
           </li>
           <li>
@@ -175,14 +200,17 @@
 
       function updateActiveNav() {
         const scrollPos = window.scrollY + 100;
-        
-        sections.forEach(section => {
+
+        sections.forEach((section) => {
           const sectionTop = section.offsetTop;
           const sectionHeight = section.offsetHeight;
           const sectionId = section.getAttribute('id');
-          
-          if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-            navLinks.forEach(link => {
+
+          if (
+            scrollPos >= sectionTop &&
+            scrollPos < sectionTop + sectionHeight
+          ) {
+            navLinks.forEach((link) => {
               link.classList.remove('active');
               if (link.getAttribute('href') === `#${sectionId}`) {
                 link.classList.add('active');
