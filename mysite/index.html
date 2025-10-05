@@ -1,106 +1,133 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="author" content="Chris" />
-    <meta name="description" content="This is my tutorial page" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Christopher Staub" />
+    <meta
+      name="description"
+      content="Learning journal capturing HTML, CSS, and AWS practice routines."
+    />
     <title>Staub Tutorial</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="icon" href="images/favicon-32x32.png" type="image/x-icon" />
   </head>
-
   <body>
-    <h1>Staub's Tutorial</h1>
+    <div class="background" aria-hidden="true"></div>
+    <main class="page">
+      <header class="hero">
+        <p class="eyebrow">HTML &amp; CSS Practice Log</p>
+        <h1>Staub's Tutorial</h1>
+        <p>
+          Documenting an ongoing
+          <abbr title="HyperText Markup Language">HTML</abbr> and CSS journey,
+          plus the study habits keeping it on track.
+        </p>
+      </header>
 
-    <hr />
-
-    <h2>
-      This will document my
-      <abbr title="Hyper Text Markup Language">HTML</abbr> journey
-    </h2>
-    <p>
-      This is my first webpage, <em>well technically more like my second.</em>
-    </p>
-
-    <h3>My learning schedule</h3>
-    <p>This will track my learning journey</p>
-
-    <ul>
-      <li>
-        <u>Weekdays:</u>
-        <ul class="indented">
+      <section class="card" id="schedule">
+        <h2>Learning Rhythm</h2>
+        <p>
+          Consistency beats intensity. These blocks keep tutorials, labs, and
+          hands-on coding in the weekly rotation.
+        </p>
+        <ul class="list">
           <li>
-            Morning (5:00 AM - 5:45 AM): Alternate between AWS tutorial and
-            HTML/CSS
+            <h3>Weekdays</h3>
+            <ul class="sublist">
+              <li>
+                <strong>5:00&nbsp;–&nbsp;5:45 AM</strong>: Alternate AWS
+                tutorials with HTML/CSS lessons.
+              </li>
+              <li>
+                <strong>5:45&nbsp;–&nbsp;6:30 AM</strong>: Review notes, run
+                labs, or build micro-examples.
+              </li>
+            </ul>
           </li>
           <li>
-            Extra Time (5:45 AM - 6:30 AM): Review key points, take notes, or
-            engage in practical exercises (like coding for HTML/CSS or doing AWS
-            Labs).
+            <h3>Weekends</h3>
+            <ul class="sublist">
+              <li>
+                <strong>7:00&nbsp;–&nbsp;9:00 AM</strong>: Deep dive sessions
+                for projects, rewatches, or longer practice reps.
+              </li>
+            </ul>
           </li>
         </ul>
-      </li>
+      </section>
 
-      <li>
-        <u>Weekends:</u>
-        <ul class="indented">
-          <li>
-            Early Morning (7:00 AM - 9:00 AM): Deep dive into the AWS tutorial,
-            HTML/CSS, or work on mini-projects.
-          </li>
-        </ul>
-      </li>
-    </ul>
-
-    <hr />
-
-    <h3>Better Job search:</h3>
-    <p>Let's find Joe and I a Job.</p>
-    <p>Need to make enough to race every month</p>
-
-    <h3>Tracks to visit after we get better Jobs</h3>
-    <ul>
-      <li>
+      <section class="card" id="goals">
+        <h2>Career &amp; Racing Goals</h2>
         <p>
-          <abbr title="Phillip Island Grand Prix Circuit">
-            <a href="https://www.phillipislandcircuit.com.au/">PI</a></abbr
-          >
-          Phillip Island Grand Prix Circuit
+          Leveling up the day job fuels the racing habit. The mission: land a
+          role that funds monthly track time for both Joe and me.
         </p>
-        <address>
-          Back Beach Rd
-          <br />Cowes VIC 3922, Australia
-        </address>
-      </li>
+        <div class="grid">
+          <article>
+            <h3>Tracks on Deck</h3>
+            <ul class="sublist">
+              <li>
+                <a
+                  href="https://www.phillipislandcircuit.com.au/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <abbr title="Phillip Island Grand Prix Circuit"
+                    >Phillip Island</abbr
+                  >
+                </a>
+                <address>Back Beach Rd<br />Cowes VIC 3922, Australia</address>
+              </li>
+              <li>
+                <a
+                  href="https://circuitoftheamericas.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <abbr title="Circuit of the Americas"
+                    >Circuit of the Americas</abbr
+                  >
+                </a>
+                <address>
+                  9201 Circuit of the Americas Blvd<br />Austin, TX 78617
+                </address>
+              </li>
+            </ul>
+          </article>
+          <article>
+            <h3>Garage Wish List</h3>
+            <dl>
+              <div>
+                <dt>2023 ZX-6R</dt>
+                <dd>636cc · Black &amp; green trim</dd>
+              </div>
+              <div>
+                <dt>2023 ZX-10R</dt>
+                <dd>998cc · Black &amp; green trim</dd>
+              </div>
+            </dl>
+            <p class="note">Joe still needs that supermoto—stat.</p>
+          </article>
+        </div>
+      </section>
 
-      <li>
-        <p>
-          <abbr title="Circuit of the Americas">
-            <a href="https://circuitoftheamericas.com/">COTA</a>
-          </abbr>
-          Circuit of the Americas
-        </p>
-        <address>
-          9201 Circuit of the Americas Blvd
-          <br />Austin, TX 78617
-        </address>
-        <!-- Add more Tracks -->
-      </li>
-    </ul>
-
-    <h3>Bikes to buy after we get better Jobs</h3>
-    <dl>
-      <dt>2023 ZX6R</dt>
-      <dd>636cc <strong>Black & Green</strong></dd>
-
-      <dt>2023 ZX10R</dt>
-      <dd>998cc <strong>Black & Green</strong></dd>
-    </dl>
-    <!-- Add more bikes, use the <dt> and <dl> from the video -->
-    <p>Joe needs a supermoto<strong> Like now! </strong></p>
-
-    <hr />
-    &lt;&lt;&lt; &copy;
-    <a href="about.html">2023 Staub Tutorial</a> &gt;&gt;&gt;
+      <footer class="footer">
+        <p>&copy; <span id="year"></span> Staub Tutorial.</p>
+        <a href="about.html">About this project</a>
+      </footer>
+    </main>
+    <script>
+      const year = document.getElementById('year');
+      if (year) {
+        year.textContent = new Date().getFullYear();
+      }
+    </script>
   </body>
 </html>

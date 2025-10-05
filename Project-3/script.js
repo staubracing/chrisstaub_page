@@ -1,6 +1,6 @@
 // Project 3. Display the information of the objects in the array in a list and add a search input to filter the objects in the array by what is typed in the input field
 
-let employees = [
+const employees = [
   {
     name: 'Chris',
     age: 52,
@@ -28,43 +28,89 @@ let employees = [
 ];
 
 const employeeList = document.getElementById('employeeList');
+const searchInput = document.getElementById('searchInput');
+const searchResults = document.getElementById('searchResults');
+const searchState = document.getElementById('searchState');
+
+const createEmployeeItem = ({ name, occupation, age, sex, email, image }) => {
+  const listItem = document.createElement('li');
+  listItem.className = 'person';
+
+  const header = document.createElement('div');
+  header.className = 'person-header';
+
+  const avatar = document.createElement('img');
+  avatar.className = 'avatar';
+  avatar.src = image;
+  avatar.alt = `${name}'s avatar`;
+
+  const summary = document.createElement('div');
+
+  const heading = document.createElement('h3');
+  heading.textContent = name;
+
+  const role = document.createElement('p');
+  role.className = 'meta';
+  role.textContent = occupation;
+
+  summary.appendChild(heading);
+  summary.appendChild(role);
+
+  header.appendChild(avatar);
+  header.appendChild(summary);
+
+  const details = document.createElement('p');
+  details.className = 'meta';
+  details.textContent = `Age ${age} · ${sex}`;
+
+  const mail = document.createElement('p');
+  mail.className = 'email';
+  mail.textContent = email;
+
+  listItem.appendChild(header);
+  listItem.appendChild(details);
+  listItem.appendChild(mail);
+
+  return listItem;
+};
+
+const renderList = (target, items) => {
+  if (!target) return;
+  target.textContent = '';
+  items.forEach((employee) => target.appendChild(createEmployeeItem(employee)));
+};
 
 if (employeeList) {
-  employees.forEach((employee) => {
-    const listItem = document.createElement('li');
-    listItem.innerHTML = `
-      <img src="${employee.image}" alt="${employee.name}" style="width:50px;height:50px;border-radius:50%;margin-right:10px;">
-      <span>Name: ${employee.name}  Occupation: ${employee.occupation} -- Age: ${employee.age}  Sex: ${employee.sex}</span>`;
-    employeeList.appendChild(listItem);
-  });
-} else {
-  console.error("Element with id 'employeeList' not found.");
+  renderList(employeeList, employees);
 }
 
-const searchInput = document.getElementById('searchInput');
-const resultDiv = document.getElementById('result');
+const handleSearch = (event) => {
+  if (!searchResults || !searchState) return;
 
-searchInput.addEventListener('input', () => {
-  const searchInputLower = searchInput.value.toLowerCase().trim();
+  const query = event.target.value.trim().toLowerCase();
 
-  if (searchInputLower === '') {
-    resultDiv.innerHTML = '';
+  if (!query) {
+    searchResults.textContent = '';
+    searchState.textContent = 'Start typing to filter the roster.';
     return;
   }
 
-  const matchingEmployees = employees.filter((employee) => {
-    return Object.values(employee).some((value) =>
-      value.toString().toLowerCase().includes(searchInputLower)
-    );
-  });
+  const matches = employees.filter((employee) =>
+    Object.values(employee).join(' ').toLowerCase().includes(query)
+  );
 
-  resultDiv.innerHTML = '';
+  searchResults.textContent = '';
 
-  if (matchingEmployees.length > 0) {
-    matchingEmployees.forEach((employee) => {
-      resultDiv.innerHTML += `<li>Name: ${employee.name} Occupation: ${employee.occupation} Age: ${employee.age}</li>`;
-    });
+  if (matches.length) {
+    renderList(searchResults, matches);
+    searchState.textContent = `Found ${matches.length} ${
+      matches.length === 1 ? 'match' : 'matches'
+    }.`;
   } else {
-    resultDiv.innerHTML = '<p>No results found.</p>';
+    searchState.textContent = 'No team members match your search.';
   }
-});
+};
+
+if (searchInput) {
+  searchInput.addEventListener('input', handleSearch);
+}

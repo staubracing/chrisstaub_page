@@ -1,91 +1,136 @@
-/**
- * Adds a new task to the task list.
- * The task can be provided as an argument or taken from the HTML input with ID 'newTask'.
- */
-function addTask(taskValue) {
-  let task = taskValue || document.getElementById('newTask').value;
+const STORAGE_KEY = 'tasks';
 
-  if (task.trim() !== '') {
-    let newTask = document.createElement('li');
-    let checkBox = document.createElement('input');
-    checkBox.type = 'checkBox';
-    checkBox.name = 'taskItem';
-    checkBox.value = task;
+const taskList = document.getElementById('taskList');
+const taskInput = document.getElementById('newTask');
+const emptyState = document.getElementById('emptyState');
+const deleteSelectedButton = document.getElementById('deleteSelected');
+const deleteAllButton = document.getElementById('deleteAll');
+const taskForm = document.getElementById('taskForm');
 
-    const newUuid = uuid.v4();
-    console.log(newUuid);
-
-    newTask.setAttribute('data-task-id', newUuid);
-    newTask.appendChild(checkBox);
-
-    let textNode = document.createTextNode(task);
-    newTask.appendChild(textNode);
-
-    let taskList = document.getElementById('taskList');
-    taskList.appendChild(newTask);
-
-    document.getElementById('newTask').value = '';
-
-    saveTasks();
-
-    document.getElementById('newTask').focus();
-  } else {
-    alert('Please enter a task.');
+const generateId = () => {
+  if (
+    typeof crypto !== 'undefined' &&
+    typeof crypto.randomUUID === 'function'
+  ) {
+    return crypto.randomUUID();
   }
-}
 
-/**
- * Saves the current tasks to localStorage.
- * Each task's text is extracted from the task list and stored.
- */
-function saveTasks() {
-  let tasks = [];
-  document.querySelectorAll('#taskList li').forEach((li) => {
-    let taskId = li.getAttribute('data-task-id');
-    let taskText = li.childNodes[1].textContent.trim();
-    let taskObject = {
-      id: taskId,
-      text: taskText,
-    };
-    tasks.push(taskObject);
-  });
-  localStorage.setItem('tasks', JSON.stringify(tasks));
-}
+  return `task-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+};
 
-/**
- * Loads and displays tasks from localStorage.
- * Each stored task is added to the task list using the addTask function.
- */
-function loadTasks() {
-  let storedTasks = JSON.parse(localStorage.getItem('tasks'));
+const updateEmptyState = () => {
+  if (!emptyState) return;
+  const hasTasks = taskList && taskList.children.length > 0;
+  emptyState.hidden = hasTasks;
+};
 
-  if (storedTasks) {
-    storedTasks.forEach((taskObject) => {
-      addTask(taskObject.text);
-    });
-  }
-}
+const createTaskElement = ({ id, text }) => {
+  const listItem = document.createElement('li');
+  listItem.className = 'staub-task';
+  listItem.dataset.taskId = id;
 
-window.onload = loadTasks;
+  const label = document.createElement('label');
+  label.className = 'task-label';
 
-/**
- * Clears only the selected (checked) tasks from the task list and updates localStorage.
- */
-function deleteSelectedTasks() {
-  let tasks = document.querySelectorAll(
-    '#taskList li input[type="checkBox"]:checked'
+  const checkbox = document.createElement('input');
+  checkbox.className = 'task-checkbox';
+  checkbox.type = 'checkbox';
+  checkbox.name = 'taskItem';
+  checkbox.value = id;
+
+  const textSpan = document.createElement('span');
+  textSpan.className = 'task-text';
+  textSpan.textContent = text;
+
+  label.appendChild(checkbox);
+  label.appendChild(textSpan);
+  listItem.appendChild(label);
+
+  return listItem;
+};
+
+const saveTasks = () => {
+  if (!taskList) return;
+
+  const tasks = Array.from(taskList.querySelectorAll('.staub-task')).map(
+    (item) => ({
+      id: item.dataset.taskId,
+      text: item.querySelector('.task-text')?.textContent?.trim() ?? '',
+    })
   );
-  tasks.forEach((task) => {
-    task.parentElement.remove();
+
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
+};
+
+const addTask = (taskText) => {
+  if (!taskList || !taskInput) return;
+
+  const text = typeof taskText === 'string' ? taskText : taskInput.value.trim();
+
+  if (!text) {
+    taskInput.focus();
+    return;
+  }
+
+  const task = {
+    id: generateId(),
+    text,
+  };
+
+  const element = createTaskElement(task);
+  taskList.appendChild(element);
+
+  saveTasks();
+  updateEmptyState();
+
+  taskInput.value = '';
+  taskInput.focus();
+};
+
+const loadTasks = () => {
+  if (!taskList) return;
+
+  const storedTasks = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+  storedTasks.forEach((task) => {
+    if (task?.text) {
+      const element = createTaskElement(task);
+      taskList.appendChild(element);
+    }
+  });
+
+  updateEmptyState();
+};
+
+const deleteSelectedTasks = () => {
+  if (!taskList) return;
+
+  const selected = taskList.querySelectorAll('.task-checkbox:checked');
+  selected.forEach((checkbox) => {
+    checkbox.closest('.staub-task')?.remove();
   });
 
   saveTasks();
-}
+  updateEmptyState();
+};
 
-/**
- * Clears all tasks from the task list and localStorage.
- */
-function deleteAllTasks() {
-  document.getElementById('taskList').innerHTML = '';
-  localStorage.removeItem('tasks');
-}
+const deleteAllTasks = () => {
+  if (!taskList) return;
+
+  taskList.textContent = '';
+  localStorage.removeItem(STORAGE_KEY);
+  updateEmptyState();
+  taskInput?.focus();
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadTasks();
+  taskInput?.focus();
+
+  taskForm?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    addTask();
+  });
+
+  deleteSelectedButton?.addEventListener('click', deleteSelectedTasks);
+  deleteAllButton?.addEventListener('click', deleteAllTasks);
+});

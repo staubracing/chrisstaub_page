@@ -1,67 +1,186 @@
+:root {
+  color-scheme: dark;
+  --terminal-bg: #050505;
+  --terminal-panel: rgba(0, 0, 0, 0.82);
+  --terminal-green: #39ff14;
+  --terminal-amber: #f7c948;
+  --terminal-red: #ff4d4d;
+  --terminal-border: rgba(57, 255, 20, 0.45);
+  --terminal-shadow: 0 40px 120px -60px rgba(0, 0, 0, 0.85);
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
-  background-color: black;
-  font-family: 'Source Code Pro', monospace;
-  margin: auto;
-  text-align: center;
-  color: #0f0; /* Retro green text */
-}
-
-/* combined elements */
-h1,
-ol,
-li {
-  color: #0f0; /* Retro green text */
-}
-
-.staub-task-list {
-  list-style-type: none;
-  padding: 0;
   margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+  background: radial-gradient(
+      circle at top,
+      rgba(57, 255, 20, 0.08),
+      transparent 55%
+    ),
+    radial-gradient(circle at bottom, rgba(247, 201, 72, 0.07), transparent 45%),
+    var(--terminal-bg);
+  font-family: 'Source Code Pro', monospace;
+  color: var(--terminal-green);
 }
 
-.staub-task-list li {
-  padding-top: 15px;
-  display: block;
+.terminal {
+  width: min(520px, 100%);
+  padding: 2.75rem 2.25rem;
+  background: var(--terminal-panel);
+  border: 1px solid var(--terminal-border);
+  border-radius: 16px;
+  box-shadow: var(--terminal-shadow);
+  display: grid;
+  gap: 1.75rem;
   text-align: left;
-  margin: auto;
-  width: 400px;
-  color: #0f0; /* Retro green text */
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.task-form {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.staub-input {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border-radius: 10px;
+  border: 1px dashed var(--terminal-border);
+  background-color: rgba(6, 6, 6, 0.9);
+  color: var(--terminal-green);
+  font-size: 1rem;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.staub-input::placeholder {
+  color: rgba(57, 255, 20, 0.45);
+}
+
+.staub-input:focus-visible,
+.staub-input:hover {
+  outline: none;
+  border-color: var(--terminal-green);
+  box-shadow: 0 0 0 2px rgba(57, 255, 20, 0.25);
 }
 
 .staub-button {
-  font-size: 16px;
-  padding: 10px 20px;
-  margin: 10px auto;
-  width: 400px;
-  display: block;
-  border: 1px solid #0f0; /* Retro green border */
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.85rem 1rem;
   border-radius: 10px;
-  background-color: black; /* Black background */
-  color: #0f0; /* Retro green text */
+  border: 1px solid var(--terminal-border);
+  background-color: rgba(6, 6, 6, 0.9);
+  color: var(--terminal-green);
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.2s ease,
+    color 0.2s ease;
+}
+
+.staub-button:hover,
+.staub-button:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 0 20px -10px rgba(57, 255, 20, 0.8);
 }
 
 .staub-button:active {
-  background-color: #444444;
-  color: #0f0; /* Ensure text remains retro green */
+  transform: translateY(1px);
 }
 
-.staub-input,
-staub-input:focus,
-staub-input:active,
-staub-input:hover {
-  font-size: 16px;
-  padding: 10px 20px;
-  margin: 10px auto;
-  display: block;
-  border: 1px solid #0f0; /* Retro green border */
-  border-radius: 10px;
-  width: 360px;
-  background-color: black; /* Black background */
-  color: #0f0; /* Retro green text */
-  border: dashed;
+.staub-green {
+  border-color: var(--terminal-green);
+  color: var(--terminal-green);
 }
 
 .staub-red {
-  border-color: red;
-  color: red;
+  border-color: var(--terminal-red);
+  color: var(--terminal-red);
+}
+
+.actions {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.empty-state {
+  margin: 0;
+  text-align: center;
+  color: rgba(57, 255, 20, 0.7);
+  font-size: 0.95rem;
+}
+
+.staub-task-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.staub-task {
+  display: grid;
+  gap: 0.75rem;
+  padding: 1rem 1.1rem;
+  background-color: rgba(6, 6, 6, 0.9);
+  border: 1px solid rgba(57, 255, 20, 0.3);
+  border-radius: 12px;
+  box-shadow: 0 16px 40px -32px rgba(0, 0, 0, 0.75);
+}
+
+.task-label {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.task-checkbox {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--terminal-green);
+  cursor: pointer;
+}
+
+.task-text {
+  margin: 0;
+  color: var(--terminal-green);
+  word-break: break-word;
+}
+
+@media (max-width: 540px) {
+  .terminal {
+    padding: 2.25rem 1.5rem;
+  }
 }

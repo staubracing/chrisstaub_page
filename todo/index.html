@@ -1,39 +1,51 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/style-terminal.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>To-Do List</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="css/style-terminal.css" />
   </head>
-
   <body>
-    <h1>Coding Tasks To Try</h1>
-    <button class="staub-button staub-red" onclick="deleteAllTasks()">
-      Delete All Tasks
-    </button>
-    <button class="staub-button" onclick="deleteSelectedTasks()">
-      Delete Selected Tasks
-    </button>
-    <button class="staub-button staub-green" onclick="addTask()">
-      New Task
-    </button>
-    <input class="staub-input" type="text" id="newTask" />
+    <main class="terminal" aria-labelledby="todo-title">
+      <h1 id="todo-title">Coding Tasks To Try</h1>
 
-    <ul id="taskList" class="staub-task-list"></ul>
+      <form id="taskForm" class="task-form" autocomplete="off">
+        <label class="sr-only" for="newTask">Add a new task</label>
+        <input
+          class="staub-input"
+          type="text"
+          id="newTask"
+          name="task"
+          placeholder="Type a task and press enter"
+        />
+        <button type="submit" class="staub-button staub-green">
+          Create Task
+        </button>
+      </form>
+
+      <div class="actions">
+        <button type="button" id="deleteSelected" class="staub-button">
+          Delete Selected Tasks
+        </button>
+        <button type="button" id="deleteAll" class="staub-button staub-red">
+          Delete All Tasks
+        </button>
+      </div>
+
+      <p id="emptyState" class="empty-state" aria-live="polite">
+        No tasks yet—add your first item above.
+      </p>
+
+      <ul id="taskList" class="staub-task-list" aria-live="polite"></ul>
+    </main>
+
     <script src="js/todo.js"></script>
-    <script src="js/uuid.min.js"></script>
-
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        document.getElementById('newTask').focus();
-      });
-    </script>
   </body>
 </html>

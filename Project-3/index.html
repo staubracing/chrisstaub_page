@@ -1,18 +1,60 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Develop Yourself Projects - Object</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Develop Yourself · Employee Directory</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
-
   <body>
-    <h1>Develop Yourself Projects - Object Project 3</h1>
-    <h2>Employee List</h2>
-    <ul id="employeeList"></ul>
+    <div class="background" aria-hidden="true"></div>
+    <main class="page">
+      <header class="hero">
+        <p class="eyebrow">Project 3 · Object Practices</p>
+        <h1>Develop Yourself Employee Directory</h1>
+        <p>
+          A simple roster powered by JavaScript objects. Browse the team below
+          or filter the list to surface exact matches instantly.
+        </p>
+      </header>
+
+      <section class="card" aria-labelledby="roster-title">
+        <div class="card-header">
+          <h2 id="roster-title">Team roster</h2>
+          <p>Rendered directly from an in-memory collection.</p>
+        </div>
+        <ul id="employeeList" class="person-list" aria-live="polite"></ul>
+      </section>
+
+      <section class="card" aria-labelledby="search-title">
+        <div class="card-header">
+          <h2 id="search-title">Search the team</h2>
+          <p>Look up people by name, role, or email address.</p>
+        </div>
+        <form class="search" role="search" novalidate>
+          <label class="field" for="searchInput">
+            <span>Search query</span>
+            <input
+              type="search"
+              id="searchInput"
+              name="search"
+              placeholder="Start typing to filter"
+              autocomplete="off"
+            />
+          </label>
+        </form>
+        <div id="searchState" class="search-state" aria-live="polite">
+          Start typing to filter the roster.
+        </div>
+        <ul id="searchResults" class="person-list" aria-live="polite"></ul>
+      </section>
+    </main>
     <script src="script.js" defer></script>
-    <input type="text" id="searchInput" placeholder="Search" />
-    <div id="result"></div>
   </body>
 </html>
