@@ -1,15 +1,32 @@
 <!doctype html>
-<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Jerry's Dad Jokes</title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Jerry's Dad Jokes Machine</h1>
-    <button id="apiButton">New Dad Joke</button>
+    <div class="background" aria-hidden="true"></div>
+    <main class="app">
+      <header>
+        <h1>Jerry's Dad Jokes Machine</h1>
+        <p>Tap the button and let the groans begin.</p>
+      </header>
+      <button id="apiButton" type="button">Get a dad joke</button>
+      <div id="status" aria-live="polite" class="status"></div>
+      <article
+        id="jokeContainer"
+        class="joke-card"
+        aria-live="polite"
+      ></article>
+    </main>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="script.js"></script>
   </body>

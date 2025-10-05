@@ -1,46 +1,147 @@
-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-  background-color: #333; /* This is a dark grey color */
-}
-h1 {
-  text-align: center;
-  font-family: 'Roboto', sans-serif;
-  font-size: 3rem;
-  color: #fff;
-}
-button {
-  font-family: 'Roboto', sans-serif;
-  font-size: 1.5rem;
-  padding: 0.5rem 1rem;
-  margin: 1rem;
-  border: none;
-  border-radius: 5px;
-  background-color: #fff;
-  color: #333;
-  cursor: pointer;
-}
-#apiButton {
-  background-color: #4caf50; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
+:root {
+  color-scheme: dark;
+  --bg: #111827;
+  --bg-gradient: radial-gradient(
+      circle at top left,
+      rgba(20, 184, 166, 0.18),
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(56, 189, 248, 0.18),
+      transparent 40%
+    ),
+    linear-gradient(135deg, rgba(15, 23, 42, 0.94), rgba(17, 24, 39, 0.97));
+  --surface: rgba(30, 41, 59, 0.85);
+  --border: rgba(148, 163, 184, 0.2);
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5f5;
+  --accent: #38bdf8;
+  --accent-contrast: #0f172a;
+  --shadow: 0 24px 68px -32px rgba(15, 23, 42, 0.9);
+  --radius: 22px;
 }
 
-.joke {
-  font-family: 'Roboto', sans-serif;
-  font-size: 1.5rem;
-  color: #fff;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family:
+    'Roboto',
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
+}
+
+.background {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: var(--bg-gradient);
+}
+
+.app {
+  width: min(520px, 90vw);
+  padding: 3rem 2.25rem;
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 1.75rem;
   text-align: center;
-  margin: 1rem;
+}
+
+header h1 {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 2.75rem);
+}
+
+header p {
+  margin: 0.5rem 0 0;
+  color: var(--text-secondary);
+}
+
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 0 auto;
+  padding: 0.85rem 1.75rem;
+  min-width: 220px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-contrast);
+  background: var(--accent);
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
+  box-shadow: 0 12px 30px -18px rgba(56, 189, 248, 0.85);
+}
+
+button:hover,
+button:focus-visible {
+  transform: translateY(-1px);
+  opacity: 0.92;
+}
+
+button:disabled {
+  cursor: wait;
+  opacity: 0.6;
+  transform: none;
+  box-shadow: none;
+}
+
+.status {
+  min-height: 1.5rem;
+  font-size: 0.95rem;
+  color: var(--accent);
+}
+
+.joke-card {
+  min-height: 120px;
+  padding: 1.75rem;
+  border-radius: calc(var(--radius) - 6px);
+  border: 1px solid var(--border);
+  background: rgba(15, 23, 42, 0.65);
+  display: grid;
+  place-items: center;
+  font-size: 1.4rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+}
+
+.joke-card.empty {
+  color: var(--text-secondary);
+}
+
+@media (max-width: 480px) {
+  .app {
+    padding: 2.5rem 1.75rem;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .joke-card {
+    font-size: 1.2rem;
+  }
 }
