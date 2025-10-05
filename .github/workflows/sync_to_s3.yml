@@ -9,6 +9,25 @@ on:
 jobs:
   sync:
     runs-on: ubuntu-latest
+    env:
+      AWS_REGION: us-east-1
+      SYNC_EXCLUDES: >-
+        --exclude ".git/*"
+        --exclude ".github/*"
+        --exclude "node_modules/*"
+        --exclude "docs/**"
+        --exclude "*.md"
+        --exclude "package*.json"
+        --exclude "yarn.lock"
+        --exclude ".prettier*"
+        --exclude ".eslintrc.*"
+        --exclude ".vscode/*"
+        --exclude "*.yml"
+        --exclude "*.config.js"
+        --exclude "*.config.cjs"
+        --exclude "*.test.*"
+        --exclude "*.log"
+        --exclude ".DS_Store"
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
@@ -18,15 +37,15 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1
+          aws-region: ${{ env.AWS_REGION }}
 
-      - name: Sync to S3 (Development)
-        if: github.ref == 'refs/heads/development'
-        run: aws s3 sync . s3://dev.chrisstaub.com --exclude ".git/*" --exclude "README.md" --exclude ".github/*" --exclude ".gitignore" --exclude "package-lock.json" --exclude "package.json" --exclude "node_modules/*" --exclude "yarn.lock" --exclude ".prettierrc" --exclude ".prettierignore" --exclude ".eslintrc.json"
-
-      - name: Sync to S3 (Main)
-        if: github.ref == 'refs/heads/main'
-        run: aws s3 sync . s3://chrisstaub.com --exclude ".git/*" --exclude "README.md" --exclude ".github/*" --exclude ".gitignore" --exclude "package-lock.json" --exclude "package.json" --exclude "yarn.lock" --exclude ".prettierrc" --exclude ".prettierignore" --exclude ".eslintrc.json" --exclude ".vscode/*"
+      - name: Sync to S3
+        run: |
+          if [[ "${GITHUB_REF##*/}" == "main" ]]; then
+            aws s3 sync . s3://chrisstaub.com ${SYNC_EXCLUDES} --delete
+          else
+            aws s3 sync . s3://dev.chrisstaub.com ${SYNC_EXCLUDES} --delete
+          fi
 
       - name: Invalidate CloudFront Distribution
         if: github.ref == 'refs/heads/main'
