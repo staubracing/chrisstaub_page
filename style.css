@@ -354,6 +354,27 @@ footer {
   transform: translateX(2px);
 }
 
+.project-links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.github-link {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.github-link:hover,
+.github-link:focus-visible {
+  color: var(--accent);
+  transform: translateX(2px);
+}
+
+.github-link svg {
+  flex-shrink: 0;
+}
+
 @media (max-width: 720px) {
   .project-grid {
     grid-template-columns: 1fr;
