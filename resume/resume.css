@@ -254,6 +254,23 @@ a:hover {
   grid-column: 1 / -1; /* span full width */
 }
 
+.skills-summary {
+  grid-column: 1 / -1; /* span full width */
+  padding: 20px;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  background: rgba(37, 99, 235, 0.04);
+  text-align: center;
+}
+
+.skills-summary p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
 .pill-list {
   margin: 0;
   padding: 0;
@@ -336,5 +353,44 @@ a:hover {
   /* Stack Skills to single column on small screens */
   #skills {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Print-specific styles for PDF generation */
+@media print {
+  /* Prevent content from being cut across pages */
+  section,
+  div,
+  article,
+  header,
+  footer {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Ensure consistent page spacing */
+  body {
+    margin: 0;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Keep headers with following text */
+  h1,
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+
+  /* Optional: reduce spacing to fit cleanly on one page */
+  p,
+  li {
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* Optional: prevent accidental empty trailing pages */
+  @page {
+    margin: 0.5in;
   }
 }
