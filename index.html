@@ -31,21 +31,28 @@
   </head>
   <body>
     <div class="background" aria-hidden="true"></div>
-    <header class="hero" id="top">
-      <p class="eyebrow">Engineer · Racer · Developer</p>
-      <h1>Christopher Staub</h1>
-      <p class="tagline">
-        Manufacturing engineer in the medical device world, motorcycle racer on
-        the weekends, and a lifelong learner exploring software and cloud
-        systems.
-      </p>
-      <nav class="primary-nav" aria-label="Primary navigation">
-        <a href="#essentials">Essentials</a>
-        <a href="#work">Work &amp; Learning</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-        <a href="/resume/" target="_blank" rel="noreferrer">Resume</a>
-      </nav>
+    <header class="site-header" id="top">
+      <div class="top-nav">
+        <a class="wordmark" href="#top" aria-label="Christopher Staub">
+          Christopher Staub
+        </a>
+        <nav class="primary-nav" aria-label="Primary navigation">
+          <a href="#essentials">Essentials</a>
+          <a href="#work">Work &amp; Learning</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+          <a href="/resume/" target="_blank" rel="noreferrer">Resume</a>
+        </nav>
+      </div>
+      <div class="hero">
+        <p class="eyebrow">Engineer · Racer · Developer</p>
+        <h1>Christopher Staub</h1>
+        <p class="tagline">
+          Manufacturing engineer in the medical device world, motorcycle racer
+          on the weekends, and a lifelong learner exploring software and cloud
+          systems.
+        </p>
+      </div>
     </header>
 
     <main>
@@ -106,33 +113,55 @@
       </section>
 
       <section class="card" id="projects">
-        <h2>Learning Projects</h2>
-        <ul class="link-list">
-          <li>
-            <a href="/Project-3/" target="_blank" rel="noreferrer">
-              Project 3 · Develop Yourself Podcast Companion
+        <h2>Featured Projects</h2>
+        <div class="project-grid">
+          <article class="project-card">
+            <h3>Employee Directory</h3>
+            <p>
+              A JavaScript-powered team roster with real-time search
+              functionality, built with modern web practices and accessibility
+              in mind.
+            </p>
+            <a
+              href="/Project-3/"
+              target="_blank"
+              rel="noreferrer"
+              class="project-link"
+            >
+              View Project →
             </a>
-          </li>
-          <li>
+          </article>
+          <article class="project-card">
+            <h3>Jerry's Dad Jokes</h3>
+            <p>
+              A tribute to my father-in-law's legendary humor, featuring an
+              API-powered joke generator with a clean, engaging interface.
+            </p>
             <a
               href="https://jerrysdadjokes.com/"
               target="_blank"
               rel="noreferrer"
+              class="project-link"
             >
-              Jerry's Dad Jokes
+              Visit Site →
             </a>
-          </li>
-          <li>
-            <a href="/mysite/" target="_blank" rel="noreferrer">
-              HTML &amp; CSS Tutorial Site
+          </article>
+          <article class="project-card">
+            <h3>Terminal To-Do App</h3>
+            <p>
+              A terminal-inspired task manager with a retro aesthetic, built
+              with vanilla JavaScript and featuring local storage persistence.
+            </p>
+            <a
+              href="/todo/"
+              target="_blank"
+              rel="noreferrer"
+              class="project-link"
+            >
+              View App →
             </a>
-          </li>
-          <li>
-            <a href="/todo/" target="_blank" rel="noreferrer">
-              Terminal-Inspired To-Do App
-            </a>
-          </li>
-        </ul>
+          </article>
+        </div>
       </section>
 
       <section class="card" id="contact">
@@ -148,7 +177,7 @@
               href="https://linkedin.com/in/christopher-staub-engineer"
               target="_blank"
               rel="noreferrer"
-              >linkedin.com/in/christopher-staub-engineer</a
+              >Christopher Staub Mfg Engineer</a
             >
           </li>
           <li>
@@ -171,6 +200,47 @@
       if (yearElement) {
         yearElement.textContent = new Date().getFullYear();
       }
+
+      // Enhanced navigation with active state
+      const navLinks = document.querySelectorAll('.primary-nav a[href^="#"]');
+      const sections = document.querySelectorAll('section[id]');
+
+      function updateActiveNav() {
+        const scrollPos = window.scrollY + 100;
+
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.offsetHeight;
+          const sectionId = section.getAttribute('id');
+
+          if (
+            scrollPos >= sectionTop &&
+            scrollPos < sectionTop + sectionHeight
+          ) {
+            navLinks.forEach((link) => {
+              link.classList.remove('active');
+              if (link.getAttribute('href') === `#${sectionId}`) {
+                link.classList.add('active');
+              }
+            });
+          }
+        });
+      }
+
+      // Throttled scroll listener for better performance
+      let ticking = false;
+      function onScroll() {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            updateActiveNav();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }
+
+      window.addEventListener('scroll', onScroll);
+      updateActiveNav(); // Initial call
     </script>
   </body>
 </html>
