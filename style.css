@@ -359,3 +359,33 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+.nav-github {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem; /* slightly more spacing than 0.5rem */
+  padding: 0.6rem 1.1rem; /* tiny vertical bump for visual centering */
+  border-radius: 999px;
+  border: 1px solid var(--surface-border);
+  background: rgba(30, 30, 30, 0.6);
+  color: var(--text-primary);
+  transition: all 0.2s ease;
+}
+
+.nav-github:hover,
+.nav-github:focus-visible {
+  background: var(--accent-muted);
+  border-color: var(--accent);
+  color: var(--accent-strong);
+  transform: translateY(-1px);
+}
+
+.nav-github svg {
+  fill: currentColor;
+  transition: transform 0.2s ease;
+  display: block;
+  margin: 1px 0; /* Add small vertical margin to prevent clipping */
+}
+
+.nav-github:hover svg {
+  transform: rotate(3deg) scale(1.05);
+}
